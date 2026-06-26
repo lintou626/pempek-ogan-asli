@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Pempek Ogan Asli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>OGAN PANEL</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" data-target="panel-ringkasan"><span>📊</span> Dashboard</a></li>
+                <li><a href="#" data-target="panel-pesanan"><span>📦</span> Pesanan Saya</a></li>
+                <li><a href="#" data-target="panel-riwayat"><span>📜</span> Riwayat Pembelian</a></li>
+                <li><a href="#" data-target="panel-profil"><span>👤</span> Profil</a></li>
+                <li class="logout-item"><a href="index.html"><span>🚪</span> Logout</a></li>
+                <li><a href="https://wa.me/6282114957466?text=Halo%20Pempek%20Ogan%20Asli,%20saya%20ingin%20tanya-tanya%20mengenai%20produk" target="_blank" class="wa-nav-link">Hubungi Kami</a></li>
+
+<a href="https://wa.me/6282114957466?text=Halo%20Pempek%20Ogan%20Asli,%20saya%20mau%20tanya%20tentang%20menunya%20ya!" class="whatsapp-floating-btn" target="_blank" rel="noopener noreferrer">
+    <span class="wa-icon">💬</span> Hubungi Kami
+</a>
+            </ul>
+        </aside>
+
+        <main class="dashboard-content">
+            <header class="content-header">
+                <h3>Selamat Datang Kembali</h3>
+                <a href="products.html" class="btn btn-outline btn-sm">Belanja Lagi</a>
+            </header>
+
+            <div class="container-fluid py-3">
+                <!-- PANEL 1: RINGKASAN (DASHBOARD SUMMARY) -->
+                <div id="panel-ringkasan" class="dashboard-panel active-panel">
+                    <div class="card profile-summary-card mb-4 flex items-center gap-3">
+                        <div class="profile-avatar" id="avatar-summary">NW</div>
+                        <div>
+                            <h2 class="user-display-name">Nazrieltou</h2>
+                            <p class="user-display-email" style="color:#888; font-size:0.9rem;">nazriel.wingky@example.com</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-3 mb-4">
+                        <div class="card stat-card">
+                            <div class="stat-title">Total Pesanan</div>
+                            <div class="stat-value" id="stat-total">0</div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-title">Pesanan Diproses</div>
+                            <div class="stat-value text-accent" id="stat-proses">0</div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-title">Pesanan Selesai</div>
+                            <div class="stat-value text-success" id="stat-selesai">0</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="margin-bottom: 15px;">Daftar Transaksi Terbaru</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>No. Invoice</th>
+                                        <th>Tanggal</th>
+                                        <th>Metode</th>
+                                        <th>Total Bayar</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body-summary">
+                                    <!-- Terisi via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 2: PESANAN SAYA (MANAGE ORDERS) -->
+                <div id="panel-pesanan" class="dashboard-panel">
+                    <div class="card">
+                        <h3 style="margin-bottom: 15px;">Daftar Seluruh Pesanan</h3>
+                        <p style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">
+                            Anda dapat mengubah metode pembayaran, nominal bayar, atau status, serta membatalkan/menghapus pesanan.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>No. Invoice</th>
+                                        <th>Tanggal</th>
+                                        <th>Metode</th>
+                                        <th>Total Bayar</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body-manage">
+                                    <!-- Terisi via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 3: RIWAYAT PEMBELIAN (COMPLETED TRANSACTIONS) -->
+                <div id="panel-riwayat" class="dashboard-panel">
+                    <div class="card">
+                        <h3 style="margin-bottom: 15px;">Riwayat Transaksi Selesai</h3>
+                        <p style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">
+                            Berikut adalah daftar transaksi pembelian Anda yang telah diselesaikan.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>No. Invoice</th>
+                                        <th>Tanggal</th>
+                                        <th>Metode</th>
+                                        <th>Total Bayar</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body-history">
+                                    <!-- Terisi via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 4: PROFIL PENGGUNA -->
+                <div id="panel-profil" class="dashboard-panel">
+                    <div class="card" style="max-width: 600px; margin: 0 auto;">
+                        <h3 style="margin-bottom: 20px; text-align: center;">Profil Pengguna</h3>
+                        
+                        <div class="profile-avatar-large" id="avatar-large">NW</div>
+                        
+                        <form id="profile-form" onsubmit="saveUserProfile(event)">
+                            <div class="form-group">
+                                <label for="profile-name">Nama Lengkap</label>
+                                <input type="text" id="profile-name" class="form-control" required placeholder="Contoh: Nazriel Wingky">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-email">Email</label>
+                                <input type="email" id="profile-email" class="form-control" required placeholder="Contoh: nazriel.wingky@example.com">
+                            </div>
+                            <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+                                <button type="submit" class="btn btn-primary" style="padding: 10px 20px;">Simpan Perubahan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL EDIT PESANAN -->
+    <div class="modal-backdrop" id="edit-order-modal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Edit Detail Pesanan</h3>
+                <button class="modal-close" onclick="closeEditModal()">&times;</button>
+            </div>
+            <form id="edit-order-form" onsubmit="saveOrderChange(event)">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>No. Invoice</label>
+                        <input type="text" id="edit-invoice" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Pesanan</label>
+                        <input type="text" id="edit-tanggal" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Metode Pembayaran</label>
+                        <select id="edit-metode" class="form-control" required>
+                            <option value="Transfer Bank">Transfer Bank</option>
+                            <option value="COD">COD</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Bayar (Rp)</label>
+                        <input type="number" id="edit-total" class="form-control" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Status Pesanan</label>
+                        <select id="edit-status" class="form-control" required>
+                            <option value="Diproses">Diproses</option>
+                            <option value="Selesai">Selesai</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline btn-sm" onclick="closeEditModal()" style="padding: 6px 12px; font-size: 0.8rem;">Batal</button>
+                    <button type="submit" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.8rem;">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

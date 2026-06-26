@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Pempek Ogan Asli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar" id="main-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">PEMPEK OGAN ASLI</a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Produk</a></li>
+                <li><a href="dashboard.html" class="login-btn">Dashboard</a></li>
+                <li><a href="cart.html" class="cart-icon-wrapper">Keranjang (<span id="cart-badge">0</span>)</a></li>
+                <li><a href="https://wa.me/6282114957466?text=Halo%20Pempek%20Ogan%20Asli,%20saya%20ingin%20tanya-tanya%20mengenai%20produk" target="_blank" class="wa-nav-link">Hubungi Kami</a></li>
+
+<a href="https://wa.me/6282114957466?text=Halo%20Pempek%20Ogan%20Asli,%20saya%20mau%20tanya%20tentang%20menunya%20ya!" class="whatsapp-floating-btn" target="_blank" rel="noopener noreferrer">
+    <span class="wa-icon">💬</span> Hubungi Kami
+</a>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container section page-margin" id="detail-main-content">
+        <div class="loading-text">Sedang memuat data produk premium...</div>
+    </main>
+
+    <section class="container section">
+        <div class="section-title">
+            <h3>Rekomendasi Terkait</h3>
+        </div>
+        <div class="grid grid-4" id="related-products-grid"></div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pempek Ogan Asli. All Rights Reserved. Created Premium.</p>
+        </div>
+    </footer>
+
+    <script src="js/products-data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
+        const products = window.PRODUCTS_DATA || [];
+        const product = products.find(p => p.id === productId);
+
+        if (!product) {
+            document.getElementById('detail-main-content').innerHTML = `<h2>Produk tidak ditemukan.</h2><a href="products.html" class="btn btn-primary mt-2">Kembali ke Katalog</a>`;
+        } else {
+            // Render detail produk utama
+            document.getElementById('detail-main-content').innerHTML = `
+                <div class="grid grid-2 container-detail card">
+                    <div class="gallery-wrapper">
+                        <div class="main-image-container">
+                            <img id="main-product-img" src="${product.gambar}" alt="${product.nama}">
+                        </div>
+                    </div>
+                    <div class="detail-info-wrapper">
+                        <span class="product-cat">${product.kategori}</span>
+                        <h1 class="detail-title">${product.nama}</h1>
+                        <div class="product-rating" style="margin: 10px 0;">⭐ ${product.rating.toFixed(1)} <span style="color:#666; font-size:0.9rem;">(Stok tersedia: ${product.stok})</span></div>
+                        <div class="detail-price">Rp ${product.harga.toLocaleString('id-ID')}</div>
+                        <p class="detail-desc">${product.deskripsi}</p>
+                        
+                        <div class="quantity-section">
+                            <label>Jumlah Pembelian:</label>
+                            <div class="quantity-selector">
+                                <button onclick="changeQty(-1)">-</button>
+                                <input type="number" id="qty-input" value="1" min="1" max="${product.stok}" readonly>
+                                <button onclick="changeQty(1)">+</button>
+                            </div>
+                        </div>
+
+                        <div class="detail-actions mt-4">
+                            <button onclick="handleAddToCart(${product.id}, false)" class="btn btn-outline">Tambah ke Keranjang</button>
+                            <button onclick="handleAddToCart(${product.id}, true)" class="btn btn-primary">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Render Rekomendasi Terkait (Kategori sama, ID berbeda)
+            const relatedContainer = document.getElementById('related-products-grid');
+            const related = products.filter(p => p.kategori === product.kategori && p.id !== product.id).slice(0, 4);
+            
+            if(related.length === 0) {
+                // Jika kategori sejenis tidak ada, berikan produk acak lain
+                products.filter(p => p.id !== product.id).slice(0, 4).forEach(rp => renderRelatedCard(rp, relatedContainer));
+            } else {
+                related.forEach(rp => renderRelatedCard(rp, relatedContainer));
+            }
+        }
+
+        function changeImg(src, element) {
+            document.getElementById('main-product-img').src = src;
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function changeQty(amount) {
+            const input = document.getElementById('qty-input');
+            if (input) {
+                let current = parseInt(input.value) + amount;
+                const max = parseInt(input.getAttribute('max'));
+                if(current >= 1 && current <= max) {
+                    input.value = current;
+                }
+            }
+        }
+
+        function renderRelatedCard(p, container) {
+            container.innerHTML += `
+                <div class="card product-card">
+                    <div class="product-img"><img src="${p.gambar}" alt="${p.nama}"></div>
+                    <div class="product-info">
+                        <h4 class="product-title">${p.nama}</h4>
+                        <div class="product-price">Rp ${p.harga.toLocaleString('id-ID')}</div>
+                        <a href="product-detail.html?id=${p.id}" class="btn btn-outline btn-sm mt-2" style="display:block; text-center">Lihat</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function handleAddToCart(id, redirectImmediately) {
+            const qtyInput = document.getElementById('qty-input');
+            const qty = qtyInput ? parseInt(qtyInput.value) : 1;
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let existing = cart.find(item => item.id === id);
+            
+            if(existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({
+                    id: product.id,
+                    nama: product.nama,
+                    harga: product.harga,
+                    gambar: product.gambar,
+                    qty: qty
+                });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            
+            if(redirectImmediately) {
+                window.location.href = 'cart.html';
+            } else {
+                alert(`Berhasil menambahkan ${qty} item ke keranjang.`);
+            }
+        }
+    </script>
+</body>
+</html>

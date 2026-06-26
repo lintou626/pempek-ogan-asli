@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "nama": "Pempek Ogan Asli Endul Enak Gurih Isi 10 ",
+    "kategori": "Pempek Ogan Asli Endul Enak Gurih Isi 10 ",
+    "harga": 13000,
+    "rating": 4.9,
+    "gambar": "https://i.pinimg.com/1200x/ae/2c/c9/ae2cc91d3d12fe25ee22715526f72329.jpg",
+    "stok": 20,
+    "deskripsi": "Dibuat dari daging ikan tenggiri asli berkualitas tinggi, disajikan bersama cuko kental pedas-manis yang otentik."
+  },
+  {
+    "id": 2,
+    "nama": "Tekwan",
+    "kategori": "Tekwan",
+    "harga": 12000,
+    "rating": 4.8,
+    "gambar": "https://i.pinimg.com/736x/a8/00/ca/a800ca12bd06e9b347133c3f6d65577e.jpg",
+    "stok": 10,
+    "deskripsi": "Tekwan Pempek Ogan Asli. Terbuat dari ikan segar pilihan yang diolah menjadi bola-bola tekwan yang kenyal dan gurih, disajikan dalam kuah kaldu udang yang hangat serta kaya rasa."
+  },
+  {
+    "id": 3,
+    "nama": "Pempek Ogan Asli Gurih Endul isi 25",
+    "kategori": "Pempek Ogan Asli Gurih Endul isi 25",
+    "harga": 30000,
+    "rating": 4.7,
+    "gambar": "https://i.pinimg.com/1200x/d0/65/02/d065026d2140100253817cdb7cc00999.jpg",
+    "stok": 50,
+    "deskripsi": "Nikmati cita rasa autentik khas Palembang dengan Pempek Ogan Asli Paket Isi 25. Dibuat dari ikan segar pilihan dan bahan berkualitas, menghasilkan pempek dengan tekstur kenyal, gurih, dan lezat"
+  },
+  {
+    "id": 4,
+    "nama": "Pempek Ogan Asli Mix isi 50",
+    "kategori": "Pempek Ogan Asli Mix isi 50",
+    "harga": 58000,
+    "rating": 4.8,
+    "gambar": "https://i.pinimg.com/1200x/24/52/39/2452396127ccdbda0955a77e5cb93da4.jpg",
+    "stok": 25,
+    "deskripsi": "Paket hemat untuk keluarga besar, acara, atau oleh-oleh khas Palembang. Pempek Ogan Asli dibuat dari ikan segar pilihan dan bahan berkualitas sehingga menghasilkan tekstur yang kenyal, lembut, dan cita rasa gurih yang khas."
+  }
+  
+]

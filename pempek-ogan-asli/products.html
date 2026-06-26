@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Menu - Pempek Ogan Asli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar" id="main-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">PEMPEK OGAN ASLI</a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Produk</a></li>
+                <li><a href="index.html#promo">Promo</a></li>
+                <li><a href="index.html#tentang">Tentang Kami</a></li>
+                <li><a href="dashboard.html" class="login-btn">Dashboard</a></li>
+                <li><a href="cart.html" class="cart-icon-wrapper">Keranjang (<span id="cart-badge">0</span>)</a></li>
+                <li><a href="https://wa.me/6282114957466?text=Halo%20Pempek%20Ogan%20Asli,%20saya%20ingin%20tanya-tanya%20mengenai%20produk" target="_blank" class="wa-nav-link">Hubungi Kami</a></li>
+
+<a href="https://wa.me/6282114957466?text=Halo%20Pempek%20Ogan%20Asli,%20saya%20mau%20tanya%20tentang%20menunya%20ya!" class="whatsapp-floating-btn" target="_blank" rel="noopener noreferrer">
+    <span class="wa-icon">💬</span> Hubungi Kami
+</a>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container section page-margin">
+        <div class="section-title">
+            <h2>Katalog Produk Premium</h2>
+            <p>Jelajahi sajian kuliner otentik kami. Bebas bahan pengawet kimia.</p>
+        </div>
+
+        <div class="filter-panel card">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Cari pempek favoritmu...">
+            </div>
+            <div class="filter-categories" id="filter-buttons">
+                <button class="btn-filter active" data-category="all">Semua Menu</button>
+                <button class="btn-filter" data-category="Pempek isi 10">Pempek isi 10</button>
+                <button class="btn-filter" data-category="Tekwan">Tekwan</button>
+                <button class="btn-filter" data-category="Pempek isi 25">Pempek isi 25</button>
+                <button class="btn-filter" data-category="Pempek isi 50">Pempek isi 50</button>
+                <button class="btn-filter" data-category="Paket Hemat">Paket Hemat</button>
+            </div>
+        </div>
+
+        <div class="grid grid-4 mt-4" id="products-grid">
+            </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pempek Ogan Asli. All Rights Reserved. Created Premium.</p>
+        </div>
+    </footer>
+
+    <script src="js/products-data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

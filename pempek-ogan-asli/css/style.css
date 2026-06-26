@@ -1,0 +1,289 @@
+/* --- GLOBAL STYLES & ARCHITECTURE VARIABLES --- */
+:root {
+    --color-primary: #111111;
+    --color-secondary: #2C2C2C;
+    --color-accent: #E5E5E5;
+    --color-text-light: #F5F5F5;
+    --color-text-muted: #A0A0A0;
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    --border-radius: 8px;
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- UTILITY CLASSES --- */
+.container { width: 90%; margin: 0 auto; max-width: 1200px; }
+.container-fluid { width: 100%; padding: 60px 5%; }
+.section { padding: 60px 0; }
+.bg-secondary { background-color: var(--color-secondary); }
+.text-center { text-align: center; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.page-margin { margin-top: 80px; }
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.items-center { align-items: center; }
+.gap-2 { gap: 10px; }
+.gap-3 { gap: 20px; }
+
+/* --- GRID LAYOUT SYSTEM (Mobile-First Default: 1 Column) --- */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* --- UI CARD COMPONENT --- */
+.card {
+    background-color: var(--color-secondary);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #3c3c3c;
+    transition: var(--transition-smooth);
+}
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #555;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: var(--transition-smooth);
+}
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+.btn-primary:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+}
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+.btn-outline:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+/* --- STICKY NAVBAR --- */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background-color: rgba(17, 17, 17, 0.95);
+    border-bottom: 1px solid #222;
+    backdrop-filter: blur(8px);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.logo {
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    color: var(--color-text-light);
+}
+.nav-links {
+    display: none; /* Disembunyikan di Mobile default */
+    list-style: none;
+}
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background-color: var(--color-primary);
+    padding: 20px;
+    border-bottom: 1px solid #333;
+    gap: 15px;
+}
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none; border: none; cursor: pointer;
+}
+.menu-toggle span {
+    width: 25px; height: 2px; background-color: var(--color-accent);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 75vh;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1626700051175-6518c4793f4f?q=80&w=1200') no-repeat center center/cover;
+}
+.hero-overlay {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+    background: linear-gradient(to bottom, rgba(17,17,17,0.6), rgba(17,17,17,0.95));
+}
+.hero-content {
+    position: relative; z-index: 10; max-width: 800px; padding: 20px;
+}
+.hero-tag {
+    font-size: 0.85rem; letter-spacing: 4px; color: var(--color-text-muted); display: block; margin-bottom: 15px; font-weight: 700;
+}
+.hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+.hero p { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 30px; }
+.hero-buttons { display: flex; gap: 15px; justify-content: center; }
+
+/* --- SECTION GENERAL --- */
+.section-title { text-align: center; margin-bottom: 40px; }
+.section-title h2 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+.section-title p { color: var(--color-text-muted); }
+
+.card-feature { text-align: center; padding: 40px 20px; }
+.feature-icon { font-size: 3rem; margin-bottom: 15px; }
+
+/* --- PRODUCT COMPONENT CARD --- */
+.product-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.product-img { width: 100%; height: 200px; overflow: hidden; background-color: #1a1a1a; }
+.product-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); }
+.product-card:hover .product-img img { transform: scale(1.05); }
+.product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.product-cat { font-size: 0.75rem; text-transform: uppercase; color: var(--color-text-muted); letter-spacing: 1px; }
+.product-title { font-size: 1.1rem; margin: 5px 0 10px 0; font-weight: 600; line-height: 1.4; }
+.product-rating { font-size: 0.85rem; color: #ffcc00; margin-bottom: 10px; }
+.product-price { font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; margin-top: auto; }
+.product-actions { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+
+/* --- SEARCH & FILTER COMPONENT --- */
+.filter-panel { display: flex; flex-direction: column; gap: 15px; }
+.search-box input {
+    width: 100%; padding: 12px; background-color: var(--color-primary); border: 1px solid #444;
+    border-radius: var(--border-radius); color: #fff; font-size: 1px;
+}
+.search-box input:focus { outline: 1px solid var(--color-accent); }
+.filter-categories { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn-filter {
+    background-color: transparent; border: 1px solid #444; color: #fff; padding: 8px 16px;
+    border-radius: 20px; cursor: pointer; transition: var(--transition-smooth); font-size: 0.85rem;
+}
+.btn-filter:hover, .btn-filter.active { background-color: var(--color-accent); color: var(--color-primary); border-color: var(--color-accent); }
+
+/* --- PRODUCT DETAIL PAGE --- */
+.main-image-container { width: 100%; height: 350px; background: #1f1f1f; border-radius: var(--border-radius); overflow: hidden; }
+.main-image-container img { width: 100%; height: 100%; object-fit: cover; }
+.thumbnail-row { display: flex; gap: 10px; margin-top: 10px; }
+.thumb.active, .thumb:hover { opacity: 1; border-color: var(--color-accent); }
+.detail-title { font-size: 2rem; font-weight: 800; margin-top: 10px; }
+.detail-price { font-size: 1.8rem; font-weight: 700; color: #fff; margin: 15px 0; }
+.detail-desc { color: var(--color-text-muted); line-height: 1.7; margin-bottom: 25px; }
+.quantity-selector { display: flex; align-items: center; max-width: 130px; border: 1px solid #444; border-radius: var(--border-radius); overflow: hidden; }
+.quantity-selector button { width: 40px; height: 40px; background: transparent; border: none; color: #fff; font-size: 1.2rem; cursor: pointer; }
+.quantity-selector button:hover { background-color: #333; }
+.quantity-selector input { width: 50px; height: 40px; background: transparent; border: none; text-align: center; color: #fff; font-size: 1rem; }
+.detail-actions { display: flex; gap: 10px; }
+
+/* --- CART COMPONENT --- */
+.cart-item-row { display: grid; grid-template-columns: 80px 1fr auto; gap: 15px; align-items: center; border-bottom: 1px solid #333; padding-bottom: 15px; }
+.cart-item-img { width: 80px; height: 80px; object-fit: cover; border-radius: 6px; }
+.btn-delete { background: none; border: none; color: #ff4444; cursor: pointer; font-size: 0.9rem; }
+.summary-card { height: fit-content; position: sticky; top: 100px; }
+.summary-line { display: flex; justify-content: space-between; margin-bottom: 12px; }
+.total-line { font-size: 1.3rem; font-weight: 800; }
+
+/* --- FORM STYLING --- */
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.85rem; color: #aaa; }
+.form-group input, .form-group textarea {
+    padding: 12px; background: var(--color-primary); border: 1px solid #444; border-radius: var(--border-radius); color: #fff;
+}
+.radio-card { display: flex; gap: 15px; padding: 15px; border: 1px solid #444; border-radius: var(--border-radius); cursor: pointer; margin-bottom: 10px; }
+.radio-card input { transform: scale(1.2); }
+
+/* --- FOOTER --- */
+.footer { background-color: #0b0b0b; padding: 60px 0 20px 0; border-top: 1px solid #1f1f1f; margin-top: 80px; }
+.footer h3 { font-weight: 800; letter-spacing: 1px; }
+.footer h4 { margin-bottom: 20px; font-size: 1.1rem; border-left: 2px solid #fff; padding-left: 10px; }
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 10px; color: #888; font-size: 0.9rem; }
+.footer ul li a:hover { color: #fff; padding-left: 5px; }
+.footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #1a1a1a; color: #555; font-size: 0.85rem; }
+/* --- FLOATING WHATSAPP BUTTON --- */
+.whatsapp-floating-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #2C2C2C; /* Senada dengan warna sekunder premium */
+    color: var(--color-accent); /* Teks abu-abu terang premium */
+    padding: 14px 22px;
+    border-radius: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 9999; /* Memastikan tombol berada di paling atas layer lain */
+    border: 1px solid #444;
+    transition: var(--transition-smooth);
+}
+
+.whatsapp-floating-btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-5px);
+    border-color: #fff;
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
+}
+
+.wa-icon {
+    font-size: 1.2rem;
+}
+
+/* Sedikit penyesuaian di mobile menu agar teks menu hubungi kami menonjol */
+.wa-nav-link:hover {
+    color: #44bb66 !important; /* Efek hijau tipis saat di-hover khusus link kontak */
+}

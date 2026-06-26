@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - Pempek Ogan Asli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar" id="main-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">PEMPEK OGAN ASLI</a>
+            <ul class="nav-links">
+                <li><a href="products.html">Kembali Belanja</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container section page-margin">
+        <div class="section-title">
+            <h2>Keranjang Belanja Anda</h2>
+        </div>
+
+        <div class="grid container-cart" id="cart-grid-layout">
+            <div id="cart-items-list" class="flex flex-column gap-3">
+                </div>
+
+            <div class="card summary-card">
+                <h3>Ringkasan Belanja</h3>
+                <hr style="border-color:#333; margin:15px 0;">
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <span id="summary-subtotal">Rp 0</span>
+                </div>
+                <div class="summary-line">
+                    <span>Ongkos Kirim (Flat)</span>
+                    <span id="summary-ongkir">Rp 15.000</span>
+                </div>
+                <hr style="border-color:#333; margin:15px 0;">
+                <div class="summary-line total-line">
+                    <span>Total Pembayaran</span>
+                    <span id="summary-total">Rp 0</span>
+                </div>
+                <button id="btn-proceed-checkout" class="btn btn-primary mt-4" style="width: 100%;">Lanjutkan Ke Checkout</button>
+            </div>
+        </div>
+        
+        <div id="empty-cart-msg" class="text-center card" style="display:none; padding:40px;">
+            <p style="color:#aaa; margin-bottom:20px;">Keranjang belanja Anda saat ini masih kosong.</p>
+            <a href="products.html" class="btn btn-primary">Lihat Produk</a>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
